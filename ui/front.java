@@ -1,18 +1,24 @@
 package ui;
 
+
+
 public class front {
 
 	public static void main(String[] args) {
+
+		
+		uidao curCus = new uidao();
 		
 		backend Johnathon = new backend();
-		Johnathon.setFristName("John");
+		Johnathon.setFristName("john");
 		Johnathon.setLastName("Stephens");
 		Johnathon.setPhone("1111111111");
 		Johnathon.setPassword("Thisismypassword");
 		Johnathon.setAge(28);
 		Johnathon.setUsername("johnsusername");
 		
-		System.out.println(Johnathon.getFirstName());
+		
+		curCus.addNewCustomer(Johnathon);		
 	}
 	
 

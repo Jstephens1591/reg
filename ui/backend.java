@@ -1,7 +1,6 @@
 package ui;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
-//import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class backend {
 	
@@ -14,57 +13,67 @@ public class backend {
 	private String username; 
 	//private String emailAddress;
 	
+	//regex stuff 
+	private Pattern pattern; 
+	public Matcher matcher;
+	
+	private static final String emailReg = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
+	private static final String firstNamReg = "(\\\\.[A-Za-z])";
+	
+	
+	//public Vadfname(){
+	//pattern = Pattern.compile(firstNamReg);
+	//	}
+	
+	//public boolean nameVad(final String firstName) {
+		
+	//	matcher = pattern.matcher(firstName);
+		
+		//	return matcher.matches();
+		//}
+
+	
+	
 	
 	public String getFirstName(){
 		return firstName;
-	}
-	public void setFristName(String firstName) {
-			
-			for(int i = 0; i <= firstName.length(); i++) {
-				if (!Character.isLetter(firstName.charAt(i))) {
-					System.out.println("Can not have number or Specail character");
-				}
-			if(firstName.length() > 24) {
-				System.out.println("Must have less then 24 letters");		
-				}
-			else {
-				this.firstName = firstName;
-				}
-				
-				}
 		}
+	
+	public void setFristName(String firstName) {
+		//Vadfname vadfname = new Vadfname();
+		System.out.println(firstName);
+		this.firstName = firstName;
+		
+				}
 			
 		
 	public String getLastName() {
 			return lastName;
 		}
 	public void setLastName(String lastName) {
-			for(int i = 0; i <= lastName.length(); i++) {
-				if (!Character.isLetter(lastName.charAt(i))) {
-					System.out.println("Can not have number or Specail character");
-					}
-				if(lastName.length() > 24) {
-				System.out.println("Must have less then 24 letters");		
-					}
-				else {
-				this.lastName = lastName;
-					}
-				
+		for(int i = 0 ; i < lastName.length(); i++) {
+			if (Character.isLetter(i)) {
+				this.lastName = lastName;				
 				}
+			else {
+		System.out.println("Can not have number or Specail character");
+			System.out.println(lastName);
+				}
+			
+			}
 		}
 	public String getPhone() {
 			return phone;
 		}
 	public void setPhone(String phone) {
 			for (int i = 0; i <= phone.length(); i++ ) {
-				if (!Character.isDigit(phone.charAt(i))) {
-				System.out.println("Must Contain all Numbers");
-					}
-				if(phone.length() < 9) {
-				System.out.println("Must be 10 digits");
-					}
-				else {
+				if (Character.isDigit(phone.charAt(i))) {
 					this.phone = phone;
+					}
+				else {					
+					System.out.println("Must Contain all Numbers");
 					}
 			}
 		}
@@ -87,6 +96,7 @@ public class backend {
 					}
 				else {
 			this.password = password;
+			System.out.println(password);
 				}
 			}
 		}
@@ -102,6 +112,7 @@ public class backend {
 					}
 				else {
 				this.age = age;
+				System.out.println(age);
 					}
 		}
 	public String getUsername() {
@@ -114,6 +125,7 @@ public class backend {
 					}
 				else {
 				this.username = username;
+				System.out.println(username);
 					}
 			}
 		}
